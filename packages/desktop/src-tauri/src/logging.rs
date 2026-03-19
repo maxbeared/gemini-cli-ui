@@ -27,9 +27,9 @@ pub fn init(log_dir: &Path) -> WorkerGuard {
 
     let filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| {
         if cfg!(debug_assertions) {
-            EnvFilter::new("opencode_lib=debug,opencode_desktop=debug,sidecar=debug")
+            EnvFilter::new("gemini_lib=debug,gemini_desktop=debug,sidecar=debug")
         } else {
-            EnvFilter::new("opencode_lib=info,opencode_desktop=info,sidecar=info")
+            EnvFilter::new("gemini_lib=info,gemini_desktop=info,sidecar=info")
         }
     });
 
@@ -66,11 +66,12 @@ fn cleanup(log_dir: &Path) {
     };
 
     for entry in entries.flatten() {
-        if let Ok(meta) = entry.metadata()
-            && let Ok(modified) = meta.modified()
-            && modified < cutoff
-        {
-            let _ = std::fs::remove_file(entry.path());
+        if let Ok(meta) = entry.metadata() {
+            if let Ok(modified) = meta.modified() {
+                if modified < cutoff {
+                    let _ = std::fs::remove_file(entry.path());
+                }
+            }
         }
     }
 }

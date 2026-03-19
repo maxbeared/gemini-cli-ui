@@ -9,14 +9,19 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2",
-    "@tauri-apps/plugin-shell": "~2",
+    "@tauri-apps/api": "^2.10.1",
     "@tauri-apps/plugin-dialog": "~2",
+    "@tauri-apps/plugin-shell": "~2",
     "@tauri-apps/plugin-store": "~2",
+    "dompurify": "^3.3.3",
+    "marked": "^17.0.4",
+    "marked-shiki": "^1.2.1",
+    "shiki": "^4.0.2",
     "solid-js": "catalog:"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2",
+    "@types/dompurify": "^3.2.0",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-solid": "catalog:"

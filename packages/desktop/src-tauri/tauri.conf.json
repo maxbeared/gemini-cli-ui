@@ -14,7 +14,10 @@
     "windows": [
       {
         "label": "main",
-        "create": false
+        "create": true,
+        "title": "Gemini Desktop",
+        "width": 1200,
+        "height": 800
       }
     ],
     "withGlobalTauri": true,
@@ -32,24 +35,7 @@
       "icons/dev/icon.ico"
     ],
     "active": true,
-    "targets": ["deb", "rpm", "dmg", "nsis", "app"],
-    "linux": {
-      "rpm": {
-        "compression": {
-          "type": "none"
-        }
-      }
-    },
-    "macOS": {
-      "entitlements": "./entitlements.plist"
-    },
-    "windows": {
-      "nsis": {
-        "installerIcon": "icons/dev/icon.ico",
-        "headerImage": "assets/nsis-header.bmp",
-        "sidebarImage": "assets/nsis-sidebar.bmp"
-      }
-    }
+    "targets": ["nsis"]
   },
   "plugins": {}
 }
